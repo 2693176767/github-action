@@ -1,0 +1,25 @@
+name: My GitHub Actions
+
+on: 
+  watch:
+    types: [started]  
+
+env: 
+  TEST_ENV: global
+
+jobs:
+  first_job:
+    name: My first job
+    env:
+      TEST_ENV: first job
+    runs-on: ubuntu-latest
+    steps:
+    - name: test 1
+      env:
+        TEST_ENV: first step
+      run: |
+        echo $TEST_ENV
+    - name: test 2
+      run: |
+        echo $TEST_ENV
+
